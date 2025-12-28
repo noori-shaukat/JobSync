@@ -15,8 +15,58 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="JobSync.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Applicant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Recruiter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Job.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FullTimeJob.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PartTimeJob.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Internship.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="User.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Applicant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Recruiter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Job.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FullTimeJob.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PartTimeJob.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Internship.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -123,7 +123,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="JobSync.cpp" />
+    <ClCompile Include="Applicant.cpp" />
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="FullTimeJob.cpp" />
+    <ClCompile Include="Internship.cpp" />
+    <ClCompile Include="Job.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="PartTimeJob.cpp" />
+    <ClCompile Include="Recruiter.cpp" />
+    <ClCompile Include="User.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Applicant.h" />
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="FullTimeJob.h" />
+    <ClInclude Include="Internship.h" />
+    <ClInclude Include="Job.h" />
+    <ClInclude Include="PartTimeJob.h" />
+    <ClInclude Include="Recruiter.h" />
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
