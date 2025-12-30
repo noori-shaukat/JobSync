@@ -1,8 +1,8 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include "Applicant.h"
-#include "Job.h"
+class Applicant;   // forward declaration
+class Job;         // forward declaration
 
 class Application {
 private:
@@ -11,7 +11,6 @@ private:
 
 public:
     Application(Applicant* applicant, Job* job);
-
     void display() const;
 };
 

@@ -1,5 +1,8 @@
 #include "Application.h"
+#include "Applicant.h"
+#include "Job.h"
 #include <iostream>
+
 using namespace std;
 
 Application::Application(Applicant* applicant, Job* job)

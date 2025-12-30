@@ -5,5 +5,5 @@ User::User(const string& name, const string& email)
 }
 
 User::~User() {
-    
+    // virtual destructor body (can be empty)
 }

@@ -1,10 +1,23 @@
 #include "Applicant.h"
+#include "Application.h"
+#include "Job.h"
 #include <iostream>
-using std::cout;
-using std::endl;
+
+using namespace std;
 
 Applicant::Applicant(const string& name, const string& email, const string& resume)
     : User(name, email), resume(resume) {
+}
+
+void Applicant::apply(Job* job) {
+    applications.push_back(new Application(this, job));
+}
+
+void Applicant::displayApplications() const {
+    for (auto app : applications) {
+        app->display();
+        cout << endl;
+    }
 }
 
 void Applicant::display() const {
@@ -15,4 +28,9 @@ void Applicant::display() const {
 
 string Applicant::getRole() const {
     return "Applicant";
+}
+
+Applicant::~Applicant() {
+    for (auto app : applications)
+        delete app;
 }

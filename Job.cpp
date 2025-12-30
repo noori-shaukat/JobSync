@@ -5,5 +5,4 @@ Job::Job(const string& title, const string& company)
 }
 
 Job::~Job() {
-    
 }

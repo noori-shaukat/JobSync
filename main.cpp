@@ -1,6 +1,4 @@
-#include <vector>
 #include <iostream>
-
 #include "Applicant.h"
 #include "Recruiter.h"
 #include "FullTimeJob.h"
@@ -10,30 +8,26 @@
 using namespace std;
 
 int main() {
-    vector<User*> users;
+    Applicant* a1 = new Applicant("Noor", "noor@email.com", "CS Student");
+    Applicant* a2 = new Applicant("Ali", "ali@email.com", "SE Student");
 
-    users.push_back(new Applicant("Noor", "noor@email.com", "CS Student"));
-    users.push_back(new Recruiter("Ali", "ali@email.com", "Google"));
+    Job* j1 = new FullTimeJob("Software Engineer", "Google", 120000);
+    Job* j2 = new Internship("Intern", "Microsoft", 2500);
 
-    for (User* u : users) {
-        u->display();
-        cout << "Role: " << u->getRole() << endl << endl;
-    }
+    a1->apply(j1);
+    a1->apply(j2);
+    a2->apply(j2);
 
-    for (User* u : users)
-        delete u;
+    cout << "Applications by Noori:\n";
+    a1->displayApplications();
 
-    vector<Job*> jobs;
+    cout << "\nApplications by Ali:\n";
+    a2->displayApplications();
 
-    jobs.push_back(new FullTimeJob("SWE", "Google", 120000));
-    jobs.push_back(new PartTimeJob("Lab Assistant", "Uni", 20, 15));
-    jobs.push_back(new Internship("Intern", "Microsoft", 2500));
-
-    for (Job* j : jobs) {
-        j->display();
-        cout << "Pay: $" << j->getPay() << endl << endl;
-    }
-
+    delete a1;
+    delete a2;
+    delete j1;
+    delete j2;
 
     return 0;
 }

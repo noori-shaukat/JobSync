@@ -16,5 +16,5 @@ void PartTimeJob::display() const {
 }
 
 double PartTimeJob::getPay() const {
-    return hourlyRate * hoursPerWeek * 4;
+    return hourlyRate * hoursPerWeek * 4;  // monthly estimate
 }
