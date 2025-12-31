@@ -76,7 +76,9 @@ Memory Management:
 3. Hired candidates’ statuses are updated automatically, and the job closes.
 4. Applicants can view all applications with real-time status updates.
 
-| **Concept**                              | **Where / How Used**                                               |
+## Course Conepts Used
+
+| **Concept**                              | **Where / How**                                               |
 | ---------------------------------------- | ------------------------------------------------------------------ |
 | Classes & Objects                        | `User`, `Applicant`, `Recruiter`, `Job`, `Application`, `Profile`  |
 | Encapsulation                            | Data members kept `private`, accessed via public methods           |
@@ -98,3 +100,4 @@ Memory Management:
 | Exception Safety (Design-level)          | Duplicate application prevention logic                             |
 | Separation of Interface & Implementation | `.h` and `.cpp` files used                                         |
 
+...and many more.
