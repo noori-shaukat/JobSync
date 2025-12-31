@@ -3,12 +3,12 @@
 
 #include "User.h"
 #include "Profile.h"
+#include "Application.h"
 
 #include <string>
 #include <vector>
 
 class Job;
-class Application;
 
 using std::string;
 
@@ -24,6 +24,7 @@ public:
     void displayApplications() const;
     
     const std::vector<Application*>& getApplications() const;
+    std::vector<Application*> getApplicationsByStatus(ApplicationStatus status) const;
 
     Profile& getProfile();
 

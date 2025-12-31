@@ -10,16 +10,20 @@ Applicant::Applicant(const string& name, const string& email)
 }
 
 bool Applicant::apply(Job* job) {
+    if (!job->getIsOpen()) {
+        cout << "Job is closed.\n";
+        return false;
+    }
+    
     for (auto app : applications) {
         if (app->getJob() == job) {
             cout << "Already applied to this job.\n";
             return false;
         }
     }
-
-    Application* newApp = new Application(this, job);
-    applications.push_back(newApp);
-    job->addApplication(newApp);
+    Application* app = new Application(this, job);
+    job->addApplication(app);
+    applications.push_back(app);
 
     return true;
 }
@@ -41,7 +45,7 @@ void Applicant::displayApplications() const {
     int count = 1;
     for (auto app : applications) {
         cout << count++ << ". ";
-        app->display();
+        app->displayForApplicant();
         cout << endl;
     }
 }
@@ -50,6 +54,15 @@ const std::vector<Application*>& Applicant::getApplications() const {
     return applications;
 }
 
+vector<Application*> Applicant::getApplicationsByStatus(ApplicationStatus status) const {
+    vector<Application*> result;
+    for (auto app : applications) {
+        if (app->getStatus() == status) {
+            result.push_back(app);
+        }
+    }
+    return result;
+}
 
 void Applicant::display() const {
     cout << "Applicant Name: " << name << endl;
@@ -62,7 +75,5 @@ string Applicant::getRole() const {
     return "Applicant";
 }
 
-Applicant::~Applicant() {
-    for (auto app : applications)
-        delete app;
-}
+Applicant::~Applicant() = default;
+

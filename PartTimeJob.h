@@ -9,10 +9,10 @@ class PartTimeJob : public Job {
 
 public:
     PartTimeJob(const string& title, const string& company,
-        double rate, int hours);
+        double rate);
 
     void display() const override;
-    double getPay() const override;
+    double getMonthlyPay() const override;
 };
 
 #endif

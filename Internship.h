@@ -11,7 +11,7 @@ public:
     Internship(const string& title, const string& company, double stipend);
 
     void display() const override;
-    double getPay() const override;
+    double getMonthlyPay() const override;
 };
 
 #endif

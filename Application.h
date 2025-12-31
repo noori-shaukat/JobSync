@@ -3,9 +3,6 @@
 
 #include <string>
 
-class Applicant;
-class Job;
-
 enum class ApplicationStatus {
     Submitted,
     Viewed,
@@ -13,6 +10,9 @@ enum class ApplicationStatus {
     Rejected,
     Hired
 };
+
+class Applicant;
+class Job;
 
 class Application {
 private:
@@ -27,9 +27,13 @@ public:
     Job* getJob() const;
 
     void display() const;
+    void displayForRecruiter() const;
+    void displayForApplicant() const;
 
     void setStatus(ApplicationStatus newStatus);
     ApplicationStatus getStatus() const;
+    std::string statusToString(ApplicationStatus status) const;
+
 };
 
 #endif

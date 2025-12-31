@@ -2,8 +2,8 @@
 #include <iostream>
 using namespace std;
 
-PartTimeJob::PartTimeJob(const string& title, const string& company, double rate, int hours)
-    : Job(title, company), hourlyRate(rate), hoursPerWeek(hours) {
+PartTimeJob::PartTimeJob(const string& title, const string& company, double rate)
+    : Job(title, company), hourlyRate(rate), hoursPerWeek(20) {
 }
 
 void PartTimeJob::display() const {
@@ -12,8 +12,10 @@ void PartTimeJob::display() const {
     cout << "Company: " << company << endl;
     cout << "Hourly Rate: $" << hourlyRate << endl;
     cout << "Hours/Week: " << hoursPerWeek << endl;
+    cout << "Status: " << (isOpen ? "Open" : "Closed") << endl;
+    cout << endl;
 }
 
-double PartTimeJob::getPay() const {
-    return hourlyRate * hoursPerWeek; 
+double PartTimeJob::getMonthlyPay() const {
+    return hourlyRate * hoursPerWeek * 4; 
 }

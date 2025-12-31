@@ -11,8 +11,10 @@ void Internship::display() const {
     cout << "Title: " << title << endl;
     cout << "Company: " << company << endl;
     cout << "Monthly Stipend: $" << monthlyStipend << endl;
+    cout << "Status: " << (isOpen ? "Open" : "Closed") << endl;
+    cout << endl;
 }
 
-double Internship::getPay() const {
+double Internship::getMonthlyPay() const {
     return monthlyStipend;
 }

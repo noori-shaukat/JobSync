@@ -11,8 +11,10 @@ void FullTimeJob::display() const {
     cout << "Title: " << title << endl;
     cout << "Company: " << company << endl;
     cout << "Annual Salary: $" << annualSalary << endl;
+    cout << "Status: " << (isOpen ? "Open" : "Closed") << endl;
+    cout << endl;
 }
 
-double FullTimeJob::getPay() const {
-    return annualSalary;
+double FullTimeJob::getMonthlyPay() const {
+    return annualSalary / 12;
 }

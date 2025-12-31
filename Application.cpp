@@ -24,16 +24,38 @@ ApplicationStatus Application::getStatus() const {
     return status;
 }
 
+string Application::statusToString(ApplicationStatus status) const {
+    switch (status) {
+    case ApplicationStatus::Submitted:   return "Submitted";
+    case ApplicationStatus::Viewed:      return "Viewed";
+    case ApplicationStatus::Shortlisted: return "Shortlisted";
+    case ApplicationStatus::Rejected:    return "Rejected";
+    case ApplicationStatus::Hired:       return "Hired";
+    default:                             return "Unknown";
+    }
+}
+
 void Application::display() const {
+    cout << "Applicant Details:\n";
+    applicant->display();
+    cout << "Job Applied To:";
     job->display();
 
-    cout << "Status: ";
-    switch (status) {
-    case ApplicationStatus::Submitted:   cout << "Submitted"; break;
-    case ApplicationStatus::Viewed:      cout << "Viewed"; break;
-    case ApplicationStatus::Shortlisted: cout << "Shortlisted"; break;
-    case ApplicationStatus::Rejected:    cout << "Rejected"; break;
-    case ApplicationStatus::Hired:       cout << "Hired"; break;
-    }
+    cout << "Status: " << statusToString(status) << endl;
+
     cout << endl;
+}
+
+void Application::displayForRecruiter() const {
+    cout << "Applicant Name: " << applicant->getName() << endl;
+    cout << "Email: " << applicant->getEmail() << endl;
+    cout << "Status: " << statusToString(status) << endl;
+    cout << endl;
+}
+
+void Application::displayForApplicant() const {
+    cout << "Job Applied To:\n";
+    job->display();
+    cout << "Status: " << statusToString(status) << endl << endl;
+
 }

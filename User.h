@@ -12,6 +12,9 @@ protected:
 public:
     User(const string& name, const string& email);
 
+    string& getEmail();
+    string& getName();
+
     virtual void display() const = 0;
     virtual string getRole() const = 0;
 

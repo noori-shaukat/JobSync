@@ -26,7 +26,16 @@ public:
     void display() const override;
     string getRole() const override;
 
-    ~Recruiter();
+    string getCompany() const;
+
+    const vector<Job*>& getPostedJobs() const { return postedJobs; }
+    void reviewShortlisted() const;
+	void displayPostedJobs() const;
+	void displayApplicationsForJob(Job* job) const;
+
+    void closeJob(Job* job);
+    void openJob(Job* job);
+
 };
 
 #endif

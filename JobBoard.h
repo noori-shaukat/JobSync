@@ -13,6 +13,13 @@ public:
     const std::vector<Job*>& getJobs() const;
     void displayAllJobs() const;
 
+    vector<Job*> getJobsByCompany(const string& company) const;
+    vector<Job*> getOpenJobs() const;
+
+    void sortByTitle();
+    void sortByCompany();
+    void sortByPayDescending();
+
     ~JobBoard();
 };
 
