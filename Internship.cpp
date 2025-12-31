@@ -1,11 +1,8 @@
 #include "Internship.h"
 #include <iostream>
-using std::cout;
-using std::endl;
+using namespace std;
 
-Internship::Internship(const string& title,
-    const string& company,
-    double stipend)
+Internship::Internship(const string& title, const string& company, double stipend)
     : Job(title, company), monthlyStipend(stipend) {
 }
 

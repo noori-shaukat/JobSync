@@ -2,24 +2,30 @@
 #define APPLICANT_H
 
 #include "User.h"
+#include "Profile.h"
+
 #include <string>
 #include <vector>
 
-class Job;          // forward declaration
-class Application;  // forward declaration
+class Job;
+class Application;
 
 using std::string;
 
 class Applicant : public User {
 private:
-    string resume;
+    Profile profile;
     std::vector<Application*> applications;
 
 public:
-    Applicant(const string& name, const string& email, const string& resume);
+    Applicant(const string& name, const string& email);
 
-    void apply(Job* job);
+    bool apply(Job* job);
     void displayApplications() const;
+    
+    const std::vector<Application*>& getApplications() const;
+
+    Profile& getProfile();
 
     void display() const override;
     string getRole() const override;

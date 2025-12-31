@@ -1,17 +1,35 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-class Applicant;   // forward declaration
-class Job;         // forward declaration
+#include <string>
+
+class Applicant;
+class Job;
+
+enum class ApplicationStatus {
+    Submitted,
+    Viewed,
+    Shortlisted,
+    Rejected,
+    Hired
+};
 
 class Application {
 private:
     Applicant* applicant;
     Job* job;
+    ApplicationStatus status;
 
 public:
     Application(Applicant* applicant, Job* job);
+    
+    Applicant* getApplicant() const;
+    Job* getJob() const;
+
     void display() const;
+
+    void setStatus(ApplicationStatus newStatus);
+    ApplicationStatus getStatus() const;
 };
 
 #endif

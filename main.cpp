@@ -1,33 +1,36 @@
-#include <iostream>
+﻿#include <iostream>
+#include <vector>
+
 #include "Applicant.h"
-#include "Recruiter.h"
 #include "FullTimeJob.h"
 #include "PartTimeJob.h"
 #include "Internship.h"
+#include "JobBoard.h"
+#include "Application.h"
+#include "Recruiter.h"
 
 using namespace std;
 
 int main() {
-    Applicant* a1 = new Applicant("Noor", "noor@email.com", "CS Student");
-    Applicant* a2 = new Applicant("Ali", "ali@email.com", "SE Student");
+    JobBoard board;
+    Recruiter recruiter("Ali", "ali@company.com", "Google");
 
-    Job* j1 = new FullTimeJob("Software Engineer", "Google", 120000);
-    Job* j2 = new Internship("Intern", "Microsoft", 2500);
+    recruiter.postJob(new FullTimeJob("Software Engineer", "Google", 120000), board);
+    recruiter.postJob(new Internship("Backend Intern", "Google", 1500), board);
 
-    a1->apply(j1);
-    a1->apply(j2);
-    a2->apply(j2);
+    Applicant applicant("Noori", "noori@email.com");
+    applicant.apply(board.getJobs()[0]);
+    applicant.apply(board.getJobs()[1]);
 
-    cout << "Applications by Noori:\n";
-    a1->displayApplications();
+    recruiter.reviewApplications();
 
-    cout << "\nApplications by Ali:\n";
-    a2->displayApplications();
+    recruiter.updateApplicationStatus(
+        board.getJobs()[0]->getApplications()[0],
+        ApplicationStatus::Shortlisted
+    );
 
-    delete a1;
-    delete a2;
-    delete j1;
-    delete j2;
+    applicant.displayApplications();
 
+    cout << "Program finished successfully.\n";
     return 0;
 }

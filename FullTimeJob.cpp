@@ -1,11 +1,8 @@
 #include "FullTimeJob.h"
 #include <iostream>
-using std::cout;
-using std::endl;
+using namespace std;
 
-FullTimeJob::FullTimeJob(const string& title,
-    const string& company,
-    double salary)
+FullTimeJob::FullTimeJob(const string& title, const string& company, double salary)
     : Job(title, company), annualSalary(salary) {
 }
 

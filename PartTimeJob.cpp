@@ -2,8 +2,7 @@
 #include <iostream>
 using namespace std;
 
-PartTimeJob::PartTimeJob(const string& title, const string& company,
-    double rate, int hours)
+PartTimeJob::PartTimeJob(const string& title, const string& company, double rate, int hours)
     : Job(title, company), hourlyRate(rate), hoursPerWeek(hours) {
 }
 
@@ -16,5 +15,5 @@ void PartTimeJob::display() const {
 }
 
 double PartTimeJob::getPay() const {
-    return hourlyRate * hoursPerWeek * 4;  // monthly estimate
+    return hourlyRate * hoursPerWeek; 
 }
