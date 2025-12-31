@@ -13,5 +13,4 @@ string& User::getName() {
 }
 
 User::~User() {
-    // virtual destructor body (can be empty)
 }

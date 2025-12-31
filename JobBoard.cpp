@@ -1,6 +1,9 @@
 #include "JobBoard.h"
 #include <algorithm>
 #include <iostream>
+#include "FullTimeJob.h"
+#include "PartTimeJob.h"
+#include "Internship.h"
 
 using namespace std;
 
@@ -32,6 +35,16 @@ vector<Job*> JobBoard::getJobsByCompany(const string& company) const {
     return result;
 }
 
+vector<Job*> JobBoard::getJobsByPayRange(double minPay, double maxPay) const {
+    vector<Job*> result;
+    std::copy_if(jobs.begin(), jobs.end(), std::back_inserter(result),
+        [minPay, maxPay](Job* job) {
+            double pay = job->getMonthlyPay();
+            return pay >= minPay && pay <= maxPay;
+        });
+    return result;
+}
+
 vector<Job*> JobBoard::getOpenJobs() const {
     vector<Job*> result;
     for (auto job : jobs) {
@@ -39,6 +52,20 @@ vector<Job*> JobBoard::getOpenJobs() const {
             result.push_back(job);
         }
     }
+    return result;
+}
+
+vector<Job*> JobBoard::getJobsByType(const string& type) const {
+    vector<Job*> result;
+
+    std::copy_if(jobs.begin(), jobs.end(), std::back_inserter(result),
+        [&type](Job* job) {
+            if (type == "FullTime") return dynamic_cast<FullTimeJob*>(job) != nullptr;
+            if (type == "PartTime") return dynamic_cast<PartTimeJob*>(job) != nullptr;
+            if (type == "Internship") return dynamic_cast<Internship*>(job) != nullptr;
+            return false;
+        });
+
     return result;
 }
 

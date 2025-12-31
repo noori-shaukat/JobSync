@@ -85,12 +85,14 @@ int main() {
             bool loggedIn = true;
             while (loggedIn) {
                 cout << "\n--- Applicant Menu ---\n";
-                cout << "1. View Open Jobs\n";
+                cout << "1. View Jobs\n";
                 cout << "2. Sort Jobs\n";
                 cout << "3. Apply to Job\n";
                 cout << "4. View My Applications\n";
                 cout << "5. View Applications by Status\n";
-                cout << "6. Logout\n";
+                cout << "6. Filter Jobs by Type\n";
+                cout << "7. Filter Jobs by Pay Range\n";
+                cout << "8. Logout\n";
                 cout << "Select option: ";
                 int appChoice;
                 cin >> appChoice;
@@ -142,7 +144,49 @@ int main() {
                         app->displayForApplicant();
                     break;
                 }
-                case 6:
+                case 6: {
+                    cout << "Enter job type (FullTime, PartTime, Internship): ";
+                    string type;
+                    cin >> type;
+
+                    vector<Job*> filteredJobs = board.getJobsByType(type);
+                    if (filteredJobs.empty()) {
+                        cout << "No jobs found for type " << type << ".\n";
+                    }
+                    else {
+                        int idx = 1;
+                        for (auto job : filteredJobs) {
+                            cout << idx++ << ". ";
+                            job->display();
+                        }
+                    }
+                    break;
+                }
+                case 7: {
+                    double minPay, maxPay;
+                    cout << "Enter minimum pay: "; cin >> minPay;
+                    cout << "Enter maximum pay: "; cin >> maxPay;
+
+                    vector<Job*> filteredJobs;
+                    for (auto job : board.getOpenJobs()) {
+                        double pay = job->getMonthlyPay();
+                        if (pay >= minPay && pay <= maxPay)
+                            filteredJobs.push_back(job);
+                    }
+
+                    if (filteredJobs.empty()) {
+                        cout << "No jobs found in the specified pay range.\n";
+                    }
+                    else {
+                        int idx = 1;
+                        for (auto job : filteredJobs) {
+                            cout << idx++ << ". ";
+                            job->display();
+                        }
+                    }
+                    break;
+                }
+                case 8:
                     loggedIn = false;
                     break;
                 default:
@@ -286,7 +330,6 @@ int main() {
     // Clean up dynamically allocated memory
     for (auto a : applicants) delete a;
     for (auto r : recruiters) delete r;
-    for (auto job : board.getJobs()) delete job;
 
     cout << "Exiting program.\n";
     return 0;

@@ -20,15 +20,17 @@ void Recruiter::postJob(Job* job, JobBoard& board) {
 }
 
 void Recruiter::reviewApplications() const {
-    cout << "\nApplications for company: " << company << endl;
+    cout << "\nApplications for company: " << company << "--------" << endl;
 
     for (auto job : postedJobs) {
+        cout << "----------------------------------------\n";
         cout << "\nJob: ";
         job->display();
 
         for (auto applicantApp : job->getApplications()) {
             applicantApp->displayForRecruiter();
         }
+		cout << "----------------------------------------\n";
     }
 }
 

@@ -14,6 +14,8 @@ public:
     void displayAllJobs() const;
 
     vector<Job*> getJobsByCompany(const string& company) const;
+    vector<Job*> getJobsByType(const string& type) const;
+    vector<Job*> getJobsByPayRange(double minPay, double maxPay) const;
     vector<Job*> getOpenJobs() const;
 
     void sortByTitle();
