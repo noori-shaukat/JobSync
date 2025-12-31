@@ -76,3 +76,25 @@ Memory Management:
 3. Hired candidates’ statuses are updated automatically, and the job closes.
 4. Applicants can view all applications with real-time status updates.
 
+| **Concept**                              | **Where / How Used**                                               |
+| ---------------------------------------- | ------------------------------------------------------------------ |
+| Classes & Objects                        | `User`, `Applicant`, `Recruiter`, `Job`, `Application`, `Profile`  |
+| Encapsulation                            | Data members kept `private`, accessed via public methods           |
+| Public / Private / Protected             | `protected` members in `User`, `private` in derived classes        |
+| Constructors                             | Used in all classes to initialize objects properly                 |
+| Destructors                              | `Applicant` destructor deletes dynamically allocated applications  |
+| `this` keyword                           | Used in apply function                                             |
+| Inheritance                              | `Applicant` and `Recruiter` inherit from `User`                    |
+| Hierarchical Inheritance                 | `User` → `Applicant`, `Recruiter`                                  |
+| Polymorphism (Runtime)                   | `Job*` pointing to different job types                             |
+| Virtual Functions                        | `display()` and `getMonthlyPay()` declared virtual                 |
+| Function Overriding                      | Job types override `display()` and `getPay()`                      |
+| Abstract Classes                         | `Job` and `User` contain pure virtual functions                    |
+| Upcasting                                | Derived objects stored as base class pointers                      |
+| Dynamic Memory Allocation                | `new` used for jobs and applications                               |
+| Memory Management                        | Proper `delete` used in destructors                                |
+| STL Containers                           | `vector` used for jobs, applications, users                        |
+| One-to-Many Relationships                | One applicant → many applications                                  |
+| Exception Safety (Design-level)          | Duplicate application prevention logic                             |
+| Separation of Interface & Implementation | `.h` and `.cpp` files used                                         |
+
